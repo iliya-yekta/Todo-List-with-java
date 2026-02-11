@@ -68,6 +68,8 @@ public class Main extends Task{
                     if (!is_exist(tasks, (input = scanner.nextLine()))) continue;
                     mark_as_completed(tasks, input);
                 }
+                case 7 -> {
+                }
                 default -> IO.println("Invalid choice. Try again...");
             }
         } while (choice != 7);
@@ -75,8 +77,11 @@ public class Main extends Task{
     }
 
     static boolean is_empty() {
-        if (tasks.isEmpty()) IO.println("Task list is empy. Add a task... ");
-        return true;
+        if (tasks.isEmpty()) {
+            IO.println("Task list is empy. Add a task... ");
+            return true;
+        }
+        return false;
     }
 }
 
