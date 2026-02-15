@@ -15,6 +15,11 @@ public class Task {
         this.name = name;
         this.time.put("Created", LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
     }
+    Task(String name, String time, String stat) {
+        this.name = name;
+        this.time.put("Created", time);
+        this.is_completed = !stat.equals("Not completed");
+    }
 
     // Complete task
     public static void mark_as_completed(ArrayList<Task> tasks, String input) {
@@ -27,7 +32,7 @@ public class Task {
 
         for (Task task : task_list)
             if (task.name.equals(input)) {
-                IO.print("Enter name to change: ");
+                IO.print("Enter name to replace: ");
                 task.name = change_input.nextLine();
             }
     }
